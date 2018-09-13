@@ -3,15 +3,72 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-
-    <div class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
+<body class="m-2 border bg-light">
+<h1 class="text-center">Welcome to Your Movie List!</h1>
+<section class="row">
+    <div class="border text-center col-6">
+        <h4>Add a Movie to Your List</h4>
+        <form class="form bg-light p-2">
+            <div class="">
+                <label for="addMovieTitle">Enter the name of the movie:</label>
+                <input type="textarea" id="addMovieTitle">
+            </div>
+            <div>
+                <label for="addMovieRating">Enter the rating of the movie:</label>
+                <input type="textarea" id="addMovieRating">
+            </div>
+            <button type="submit" class="submit" id="addMovie">Submit</button>
+        </form>
     </div>
-
+    <div class="border text-center col-6">
+        <h4>Modify a Movie From Your List</h4>
+        <form class="form bg-light p-2">
+            <div class="">
+                <label for="selectMovieNum">Enter the movie number you want to modify:</label>
+                <input type="textarea" id="selectMovieNum">
+            </div>
+            <div class="">
+                <label for="changeMovieTitle">Update the name of the movie:</label>
+                <input type="textarea" id="changeMovieTitle">
+            </div>
+            <div>
+                <label for="changeMovieRating">Update the rating of the movie:</label>
+                <input type="textarea" id="changeMovieRating">
+            </div>
+            <button type="submit" class="submit" id="changeMovie">Submit</button>
+        </form>
+    </div>
+</section>
+<form class="form bg-light row">
+    <div class="col-6">
+        <label for="deleteMovieNum">Enter the movie number you want to delete:</label>
+        <input type="text" size="4" id="deleteMovieNum">
+    </div>
+    <button type="submit" class="submit col-2" id="deleteMovie">Delete Movie</button>
+</form>
+<!--<div class="border text-center">-->
+    <!--<h4>Add a Movie to Your List</h4>-->
+    <!--<form class="form bg-light p-2">-->
+        <!--<div class="">-->
+            <!--<label for="addMovieTitle">Enter the name of the movie:</label>-->
+            <!--<input type="textarea" id="addMovieTitle">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label for="addMovieRating">Enter the rating of the movie:</label>-->
+            <!--<input type="textarea" id="addMovieRating">-->
+        <!--</div>-->
+        <!--<button type="submit" class="submit">Submit</button>-->
+    <!--</form>-->
+<!--</div>-->
+ <div class="container">
+        <h1>Please Wait!</h1>
+        <p>Page Loading...</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="/main.js"></script>
 </body>
 </html>
