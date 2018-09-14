@@ -17,7 +17,7 @@ getMovies().then((movies) => {
     movies.forEach(({title, rating, id}) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);
     document.getElementsByClassName("container")[0].innerHTML +=
-        `<div class="movieList align-text-bottom row ">
+        `<div class="movieList align-text-bottom row " id="${id}">
         <p class="col-4"># ${id} </p>
         <h5 class="col-12 text-truncate">${title}</h5>
         <p class="col-12">Rating: ${rating}</p>
@@ -32,12 +32,14 @@ getMovies().then((movies) => {
 });
 
 
+
 let movieTitle = document.querySelector('#addMovieTitle');
 let movieRating = document.querySelector('#addMovieRating');
 let changeTitle = document.querySelector('#changeMovieTitle');
 let changeRating = document.querySelector('#changeMovieRating');
 let movieNum = document.querySelector('#selectMovieNum');
 let deleteMovieNum = document.querySelector('#deleteMovieNum');
+
 
 $('#addMovie').click(function(e){
     // e.preventDefault();
@@ -56,18 +58,6 @@ $('#addMovie').click(function(e){
         fetch(url, options)
             .then(/* post was created successfully */)
             .catch(/* handle errors */);
-    // $.ajax("../db.json").done(function(data, status, jqXhr) {
-    //     // alert("AJAX call completed successfully!");
-    //     console.log("Request status: " + status);
-    //     console.log("Data returned from server:");
-    //     console.log(data);
-    //     // list.push(data);
-    //     $(".container").children().remove();
-    //     data.forEach(function(element){
-    //         $(".container").append("<tr><td>" + element.title + "</td><td>" + element.quantity + "</td><td>" + element.price + "</td><td>" + element.categories + "</td></tr>");
-    //     });
-    //
-    // });
 });
 
 $('#changeMovie').click(function(){
@@ -107,25 +97,32 @@ $('#deleteMovie').click(function(){
         .catch(/* handle errors */);
 });
 
-$('.deleteTest').click(function(){
-    // e.preventDefault();
-    console.log("test");
-    // e.preventDefault();
-    // $(this).hide();
-    // // console.log($(this));
-    // const url = '/api/movies/'+ deleteMovieNum.value;
-    // const options = {
-    //     method: 'DELETE',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: '',
-    // };
-    // fetch(url, options)
-    //     .then(/* post was created successfully */)
-    //     .catch(/* handle errors */);
+$('.edit').click(function(){
+    console.log($(this).parent().attr('id'));
+    $("#changeMovieTitle").val($(this).parent().first().next().val());
+    $("#changeMovieRating").val($(this).parent().first().next().val());
+    $("#selectMovieNum").val($(this).parent().attr('id'));
 });
 
-$('.deleteTest').click(function () {
-    $('body').append('<h1>This is a test</h1>')
-})
+$('.deleteTest').click(function(){
+    // e.preventDefault();
+    console.log($(this).parent().attr('id'));
+    // e.preventDefault();
+    // $(this).hide();
+    // console.log($(this));
+    const url = '/api/movies/'+ $(this).parent().attr('id');
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: '',
+    };
+    fetch(url, options)
+        .then(/* post was created successfully */)
+        .catch(/* handle errors */);
+});
+
+// $('.deleteTest').click(function () {
+//     console.log('test');
+// })
